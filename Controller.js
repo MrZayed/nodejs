@@ -9,7 +9,6 @@ const getAllList = (req, res)=>{
 
 const getById = (req,res)=>{
     const id = +req.params.id;
-    console.log(list);
     
     const person = list.list.find((person)=>person.id===id)
     if (!person) {
@@ -55,7 +54,7 @@ const deleteById = (req,res)=>{
     if (!person) {
         res.json(msg,"can't find this id");
     } else {
-        list.list = list.list.filter((c) => c.id != person.id);  // Correct filter logic
+        list.list = list.list.filter((c) => c.id != person.id);  
         res.status(200).json({ Status: httpStatus.SUCCESS, Data: person });
     }
 }
